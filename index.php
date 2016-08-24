@@ -82,7 +82,7 @@
             <!--<button id="auth-check" type="button" class="btn btn-primary">Check Auth</button>-->
             <button id="fb-login-btn" type="button" class="btn btn-fb"><i class="fa fa-facebook left"></i> Login to Facebook</button>
             <div id="user-info" class="alert alert-info" role="alert">Logged in as: <img width="24" height="24" id="fbpic" src="assets/img/fb.png"/> <span id="fb-name"></span></div>
-            <button id="liveButton" type="button" class="btn btn-success">Go Live!</button>
+            <button id="liveButton" type="button" class="btn btn-success">Get Streamkey</button>
           </div>
           <div class="card" style="display:none">
               <img class="img-fluid" src="http://mdbootstrap.com/images/regular/nature/img%20(28).jpg" alt="Card image cap">
