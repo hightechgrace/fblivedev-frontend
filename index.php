@@ -83,6 +83,7 @@
             <button id="fb-login-btn" type="button" class="btn btn-fb"><i class="fa fa-facebook left"></i> Login to Facebook</button>
             <div id="user-info" class="alert alert-info" role="alert">Logged in as: <img width="24" height="24" id="fbpic" src="assets/img/fb.png"/> <span id="fb-name"></span></div>
             <button id="liveButton" type="button" class="btn btn-success">Get Streamkey</button>
+            <input type="text" id="streamKey" style="display:none" value="">
           </div>
           <div class="card" style="display:none">
               <img class="img-fluid" src="http://mdbootstrap.com/images/regular/nature/img%20(28).jpg" alt="Card image cap">
@@ -135,14 +136,15 @@
           alert('dialog canceled');
           return;
         }
-        alert('stream url:' + response.secure_stream_url);
+        //alert('stream url:' + response.secure_stream_url);
+        console.log(response)
         FB.ui({
           display: 'popup',
           method: 'live_broadcast',
           phase: 'publish',
           broadcast_data: response,
         }, function(response) {
-        alert("video status: \n" + response.status);
+        //alert("video status: \n" + response.status);
         });
       });
     };
