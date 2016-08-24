@@ -82,8 +82,9 @@
             <!--<button id="auth-check" type="button" class="btn btn-primary">Check Auth</button>-->
             <button id="fb-login-btn" type="button" class="btn btn-fb"><i class="fa fa-facebook left"></i> Login to Facebook</button>
             <div id="user-info" class="alert alert-info" role="alert">Logged in as: <img width="24" height="24" id="fbpic" src="assets/img/fb.png"/> <span id="fb-name"></span></div>
+            <button id="liveButton" type="button" class="btn btn-success">Go Live!</button>
           </div>
-          <div class="card">
+          <div class="card" style="display:none">
               <img class="img-fluid" src="http://mdbootstrap.com/images/regular/nature/img%20(28).jpg" alt="Card image cap">
               <div class="card-block">
                   <!--Title-->
@@ -119,34 +120,33 @@
                     </div>
                   </form>
 
-<script>
-document.getElementById('liveButton').onclick = function() {
-  FB.ui({
-    display: 'popup',
-    method: 'live_broadcast',
-    phase: 'create',
-}, function(response) {
-    if (!response.id) {
-      alert('dialog canceled');
-      return;
-    }
-    alert('stream url:' + response.secure_stream_url);
-    FB.ui({
-      display: 'popup',
-      method: 'live_broadcast',
-      phase: 'publish',
-      broadcast_data: response,
-    }, function(response) {
-    alert("video status: \n" + response.status);
-    });
-  });
-};
-</script>
-                  <button id="liveButton" type="button" class="btn btn-success">Go Live!</button>
               </div>
           </div>
         </div>
     </div>
+    <script>
+    document.getElementById('liveButton').onclick = function() {
+      FB.ui({
+        display: 'popup',
+        method: 'live_broadcast',
+        phase: 'create',
+    }, function(response) {
+        if (!response.id) {
+          alert('dialog canceled');
+          return;
+        }
+        alert('stream url:' + response.secure_stream_url);
+        FB.ui({
+          display: 'popup',
+          method: 'live_broadcast',
+          phase: 'publish',
+          broadcast_data: response,
+        }, function(response) {
+        alert("video status: \n" + response.status);
+        });
+      });
+    };
+    </script>
     <script src="assets/js/jquery-2.2.3.min.js"></script>
     <script src="assets/js/tether.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
