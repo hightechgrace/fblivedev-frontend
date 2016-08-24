@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>My Facebook Event</title>
+    <title>Facebook Live!</title>
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" rel="stylesheet" >
     <link href="assets/css/mdb.min.css" rel="stylesheet">
@@ -78,7 +78,7 @@
         </div>-->
         <div class="fb-event">
           <div class="jumbotron">
-            <h3>Create Facebook Event</h3>
+            <h3>Facebook Live</h3>
             <!--<button id="auth-check" type="button" class="btn btn-primary">Check Auth</button>-->
             <button id="fb-login-btn" type="button" class="btn btn-fb"><i class="fa fa-facebook left"></i> Login to Facebook</button>
             <div id="user-info" class="alert alert-info" role="alert">Logged in as: <img width="24" height="24" id="fbpic" src="assets/img/fb.png"/> <span id="fb-name"></span></div>
