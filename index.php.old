@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>My Facebook Live Streamer</title>
+
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1600275956936839',
+        //c05b9e8a95c75029fab8481869432d80
+        xfbml      : true,
+        version    : 'v2.7'
+      });
+    };
+    //ffmpeg -re -i sample.mp4 -c:v libx264 -preset fast -c:a libfdk_aac -ab 128k -ar 44100 -f flv rtmps://rtmp-api.facebook.com:443/rtmp/10209020397338607?ds=1&a=AaYMWU9MIcjVrldt
+    //ffmpeg -re -i input.mp4 -c:v copy -c:a copy -f flv rtmp://rtmp-api.facebook.com:80/rtmp/10209020397338607?ds=1&a=AaYMWU9MIcjVrldt
+    //ffmpeg -re -i sample.mp4 -acodec libfdk_aac  -ar 44100 -b:a 128k -pix_fmt yuv420p -profile:v baseline -s 426x240 -bufsize 6000k -vb 400k -maxrate 1500k -deinterlace -vcodec libx264 -preset veryfast -g 30 -r 30 -f flv "rtmp://rtmp-api.facebook.com:80/rtmp/10209020487060850?ds=1&a=AaZuI85n9TSgZX8P"
+    //ffmpeg -re -i input.mp4 -c:v copy -c:a copy -f flv "rtmp://rtmp-api.facebook.com:80/rtmp/10209020487060850?ds=1&a=AaZuI85n9TSgZX8P"
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Facebook Live Api Test</h1>
+        <div class="booth">
+          <video id="source-stream" width="500" height="400" autoplay></video>
+          <canvas id="canvas-source" width="500" height="400"></canvas>
+          <div id="led"></div>
+        </div>
+        <p><button type="button" class="btn btn-success" id="liveButton">Create FB Live Stream</button></p>
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="scripts.js"></script>
+  </body>
+</html>
